@@ -14,8 +14,14 @@ app.get('/', (req, res) => {
 // Criar, Ler (Tudo ou Individual), Atualizar e Remover
 
 const mensagens = [
-  'Essa é a primeira mensagem',
-  'Essa é a segunda mensagem'
+  {
+    id: 1,
+    texto: 'Essa é a primeira mensagem'
+  },
+  {
+    id: 2,
+    texto: 'Essa é a segunda mensagem'
+  }
 ];
 
 // [CREATE] - Criar uma mensagem
