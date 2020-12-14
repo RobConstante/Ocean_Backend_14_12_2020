@@ -20,7 +20,7 @@ const mensagens = [
 
 // [READ] All - Ler todas as mensagens
 app.get('/mensagens', (req, res) => {
-  res.send(mensagens);
+  res.send(mensagens.filter(Boolean));
 });
 
 // [CREATE] - Criar uma mensagem
@@ -30,6 +30,15 @@ app.post('/mensagens', (req, res) => {
   mensagens.push(texto);
 
   res.send('Mensagem foi criada com sucesso!');
+});
+
+// [DELETE] - Remover uma mensagem
+app.delete('/mensagens/:id', (req, res) => {
+  const id = +req.params.id - 1;
+
+  delete mensagens[id];
+
+  res.send('Mensagem foi excluída com sucesso!');
 });
 
 app.listen(3000, () => {
