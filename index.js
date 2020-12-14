@@ -18,11 +18,6 @@ const mensagens = [
   'Essa é a segunda mensagem'
 ];
 
-// [READ] All - Ler todas as mensagens
-app.get('/mensagens', (req, res) => {
-  res.send(mensagens.filter(Boolean));
-});
-
 // [CREATE] - Criar uma mensagem
 app.post('/mensagens', (req, res) => {
   const texto = req.body.texto;
@@ -30,6 +25,11 @@ app.post('/mensagens', (req, res) => {
   mensagens.push(texto);
 
   res.send('Mensagem foi criada com sucesso!');
+});
+
+// [READ] All - Ler todas as mensagens
+app.get('/mensagens', (req, res) => {
+  res.send(mensagens.filter(Boolean));
 });
 
 // [UPDATE] - Editar uma mensagem
