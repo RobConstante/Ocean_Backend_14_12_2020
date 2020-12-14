@@ -1,16 +1,24 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-app.get('/mensagens', function (req, res) {
-  res.send('Exibir a lista de mensagens.')
-})
+// CRUD
+// Create, Read (All or Single), Update, Delete
+// Criar, Ler (Tudo ou Individual), Atualizar e Remover
 
-app.post('/mensagens', function (req, res) {
-  res.send('Criar uma mensagem.')
-})
+// [READ] All - Ler todas as mensagens
+app.get('/mensagens', (req, res) => {
+  res.send('Exibir a lista de mensagens.');
+});
 
-app.listen(3000)
+// [CREATE] - Criar uma mensagem
+app.post('/mensagens', (req, res) => {
+  res.send('Criar uma mensagem.');
+});
+
+app.listen(3000, () => {
+  console.info('Servidor rodando em http://localhost:3000.');
+});
