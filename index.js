@@ -32,6 +32,15 @@ app.get('/mensagens', (req, res) => {
   res.send(mensagens.filter(Boolean));
 });
 
+// [READ] Single - Ler apenas uma mensagem
+app.get('/mensagens/:id', (req, res) => {
+  const id = +req.params.id - 1;
+
+  const mensagem = mensagens[id];
+
+  res.send(mensagem);
+});
+
 // [UPDATE] - Editar uma mensagem
 app.put('/mensagens/:id', (req, res) => {
   const id = +req.params.id - 1;
