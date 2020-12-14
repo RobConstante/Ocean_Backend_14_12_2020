@@ -32,6 +32,17 @@ app.post('/mensagens', (req, res) => {
   res.send('Mensagem foi criada com sucesso!');
 });
 
+// [UPDATE] - Editar uma mensagem
+app.put('/mensagens/:id', (req, res) => {
+  const id = +req.params.id - 1;
+
+  const novoTexto = req.body.texto;
+
+  mensagens[id] = novoTexto;
+
+  res.send('Mensagem editada com sucesso!');
+});
+
 // [DELETE] - Remover uma mensagem
 app.delete('/mensagens/:id', (req, res) => {
   const id = +req.params.id - 1;
