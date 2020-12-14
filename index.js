@@ -26,11 +26,14 @@ const mensagens = [
 
 // [CREATE] - Criar uma mensagem
 app.post('/mensagens', (req, res) => {
-  const texto = req.body.texto;
+  const mensagem = req.body;
 
-  mensagens.push(texto);
+  const id = mensagens.length + 1;
+  mensagem.id = id;
 
-  res.send('Mensagem foi criada com sucesso!');
+  mensagens.push(mensagem);
+
+  res.send(mensagem);
 });
 
 // [READ] All - Ler todas as mensagens
